@@ -38,8 +38,11 @@
                                     <a href="{{ route('product.form', $product->id) }}"
                                         class="text-blue-600 hover:text-blue-800">Edit</a>
 
-                                    <a href="{{ route('product.destroy', $product->id) }}"
-                                        class="text-red-600 hover:text-red-800">Delete</a>
+                                    <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
